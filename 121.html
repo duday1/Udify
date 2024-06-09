@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)file:///C:/Users/udayd/Downloads/24day.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Document</title>
+<style>
+ *{
+     padding:0;
+      margin:0;
+ } 
+  #Tom {
+    background-color:rgb(141, 122, 176);
+          height:40px;
+          /* width:200px; */
+     color:rgb(4, 7, 4);
+          border-radius:5px;  
+           font-style:normal;
+          text-decoration-line:underline;
+}
+ 
+  body {
+     /* background-color: rgba(184, 169, 169,0.25); */
+     background-image: url("gym.webp");
+      background-size: cover;
+  }
+ #main{
+         background-color:black;
+         float: left;
+          height:65px;
+           width:84%;
+         color : white;
+          border-radius:12px;
+ }
+  a {
+     margin : 60px;
+     text-decoration:none;
+      color :aliceblue;
+  }
+   a:hover {
+      color:blue;
+   }
+  b{ 
+     font-style: italic;
+     font-size:35px;
+     color:darkgoldenrod;
+      }
+  button{
+     
+     border-radius: 12px ;
+      color : rgb(24, 24, 5);
+  }
+  button:hover{
+    background-color: rgb(21, 35, 35);
+       color:rgb(216, 216, 219);
+  }
+  #container {
+    width: 60%;
+    margin: 35px auto;
+    /* background-color: #1e2121; */
+     color:rgb(17, 22, 22);
+     position:sticky;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#result {
+    margin-top: 10px;
+    text-align: center;
+     font-size:x-large;
+    font-weight: bold;
+    color:rgb(5, 4, 4);
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #1d1313;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #df5858;
+    border-radius: 5px;
+}
+/* #kuku {
+    background-color:rgb(83, 16, 16);
+    float:right;
+     font-size: larger;
+     height:65px;
+      width:20%;
+    color : white;
+     border-radius:5px;
+
+      text-align: center;
+   
+} */
+#kuku {
+    background-color:rgb(141, 122, 176);
+    display: float;
+  
+    height: 60px; /* Adjust height as needed */
+    padding: 20px; /* Adjust padding as needed */
+}
+
+#kuku input {
+    width: 106px; /* Adjust width of input field */
+    height: 34px; /* Adjust height of input field */
+    font-size:10px; /* Adjust font size of input field */
+    margin: 5px; /* Adjust margin as needed */
+}
+
+#kuku button {
+    width: 40px; /* Adjust width of button */
+    height: 30px; /* Adjust height of button */
+    font-size: 10px; /* Adjust font size of button */
+    margin: 5px; /* Adjust margin as needed */
+}
+ /* #extra{
+     flex-grow: ;
+      width:100% ;
+      background-color:red ;
+       height : 80px;
+        position : right;
+ } */
+
+  #extra{
+    display: flex;
+     height:30px;
+       /* width:33%; */
+     background-color : rgb(178, 178, 228);
+  }
+    .box1{
+        text-align: center;
+        height:30px;
+        width:33.3%;  
+         background-color: rgb(118, 118, 200);
+    }
+    .box2{
+         text-align: center ;
+        height:30px;
+        width:33%;
+         background-color: rgb(104, 232, 104);
+    }
+    .box3{
+         text-align: center;
+        height:30px;
+        width:33%;
+         background-color: rgb(219, 84, 84);
+    }
+     pre{
+        background-color: rgb(178, 178, 228);
+     }
+</style></head>
+ 
+
+<body>
+    <div id="Tom">
+  <marquee align="left">
+   <h1> Welcome To Udify health services </h1>
+    </marquee>
+     </div>
+   <div id="main">
+        <b>    &nbsp;&nbsp;udify.in </b>
+        <a href="file:///C:/Users/udayd/Downloads/24day.html">Home </a>
+        <a href="file:///C:/Users/udayd/Downloads/24day.html">Account</a>
+        <a href="file:///C:/Users/udayd/Downloads/24day.html"> Diets </a>
+        <a href="file:///C:/Users/udayd/Downloads/24day.html"> About Us </a>
+        <a href="file:///C:/Users/udayd/Downloads/24day.html"> Contact Us </a>
+</div>
+ 
+     <div id="kuku">
+        <input placeholder="search here">
+        <button>
+            search
+        </button>
+   </div>
+
+   <br>
+   <br>
+   <br>
+   <br>
+   <div id="container">
+       <h1>Udify BMI Calculator</h1>
+       <form id="bmiForm">
+           <label for="height">Height (cm):</label>
+           <input type="number" id="height" placeholder="Enter your height in cm" required="">
+           <label for="weight">Weight (kg):</label>
+           <input type="number" id="weight" placeholder="Enter your weight in kg" required="">
+           <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+       </form>
+       <div id="result"></div>
+   </div>
+   <script>
+   function calculateBMI() {
+       var height = document.getElementById("height").value;
+       var weight = document.getElementById("weight").value;
+   
+       var bmi = (weight / ((height/100) * (height/100))).toFixed(2);
+   
+       var result = document.getElementById("result");
+       result.innerHTML = "Your BMI is: " + bmi;
+   
+       if (bmi < 18.5) {
+           result.innerHTML += "<br>Underweight";
+       } else if (bmi >= 18.5 && bmi < 24.9) {
+           result.innerHTML += "<br>Normal weight";
+       } else if (bmi >= 25 && bmi < 29.9) {
+           result.innerHTML += "<br>Overweight";
+       } else {
+           result.innerHTML += "<br>Obesity";
+       }
+   }
+   </script>
+   <br>
+   <br>
+   <br>
+   <br>
+   <div id="extra">
+    <div class="box1">
+        <h2>BMI &lt; 18.5  : Under Weight </h2>
+        </div>
+        
+        <div class="box2">
+           <h2> BMI &gt; 18.5 &amp;&amp; 25  : Good  </h2>
+        </div>
+
+        <div class="box3">
+      <h2> BMI &gt;25  &amp;&amp;  30 : Overweight </h2>
+        </div>
+    </div>
+ 
+  <h1>  Key facts :  </h1>
+   <pre>In 2022, 1 in 8 people in the world were living with obesity. 
+Worldwide adult obesity has more than doubled since 1990, and adolescent obesity has quadrupled.
+In 2022, 2.5 billion adults (18 years and older) were overweight. Of these, 890 million were living with obesity.
+In 2022, 43% of adults aged 18 years and over were overweight and 16% were living with obesity.
+In 2022, 37 million children under the age of 5 were overweight.
+Over 390 million children and adolescents aged 5–19 years were overweight in 2022, including 160 million who were living with obesity.
+ </pre>
+  
+   
+   </body></html>
